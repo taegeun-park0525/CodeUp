@@ -1,25 +1,26 @@
 package Problem100;
 
-import java.util.Scanner;
+import java.io.*;
 
 public class Q1084 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int r = sc.nextInt();
-        int g = sc.nextInt();
-        int b = sc.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        String[] rgb = br.readLine().split(" ");
+
         int cnt = 0;
 
-        for (int i = 0; i < r; i++) {
-            for (int j = 0; j < g; j++) {
-                for (int k = 0; k < b; k++) {
-                    System.out.printf("%d %d %d\n", i, j, k);
+        for (int i = 0; i < Integer.parseInt(rgb[0]); i++) {
+            for (int j = 0; j < Integer.parseInt(rgb[1]); j++) {
+                for (int k = 0; k < Integer.parseInt(rgb[2]); k++) {
+                    bw.write(i + " " + j + " " + k + "\n");
                     cnt++;
                 }
             }
         }
 
-        System.out.println(cnt);
-
+        bw.write(Integer.toString(cnt));
+        bw.close();
+        br.close();
     }
 }
